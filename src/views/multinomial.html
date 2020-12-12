@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribucion Multinomial</title>
+    <link rel="stylesheet"
+    href="https://bootswatch.com/4/lux/bootstrap.min.css">
+</head>
+<body>
+    <form class="p-4">
+        <div class="form-group">
+            <label for="txtK">Ingresa el valor de k:</label>
+            <input type="number" id="txtK" class="form-control" placeholder="Introduzca k" autofocus>
+            
+        </div>
+        <div class="form-group">
+            <button class="btn btn-danger btn-block" onclick="validarCampos()">Validar Campos para k</button>
+        </div>
+        <div class="form-group">
+            <label for="txtN">Ingresa el valor de n:</label>
+            <input type="number" id="txtN" class="form-control" placeholder="Introduzca n">
+        </div>
+        <div class="form-group">
+            <label for="txtX1">Ingresa el valor de x1:</label>
+            <input type="number" id="txtX1" class="form-control" placeholder="Introduzca x1">
+        </div>
+        <div class="form-group">
+            <label for="txtX2">Ingresa el valor de x2:</label>
+            <input type="number" id="txtX2" class="form-control" placeholder="Introduzca x2">
+        </div>
+        <div class="form-group">
+            <label for="txtX3">Ingresa el valor de x3:</label>
+            <input type="number" id="txtX3" class="form-control" placeholder="Introduzca x3">
+        </div>
+        <div class="form-group">
+            <label for="txtP1">Ingresa el valor de p1:</label>
+            <input type="number" id="txtP1" class="form-control" placeholder="Introduzca p1">
+        </div>
+        <div class="form-group">
+            <label for="txtP2">Ingresa el valor de p2:</label>
+            <input type="number" id="txtP2" class="form-control" placeholder="Introduzca p2">
+        </div>
+        <div class="form-group">
+            <label for="txtP3">Ingresa el valor de p3:</label>
+            <input type="number" id="txtP3" class="form-control" placeholder="Introduzca p3">
+        </div>
+        <button class="btn btn-primary btn-block" onclick="getData()">Hacer calculo</button>
+        
+
+        </form>
+        <!--Validar campos-->
+        <script>
+        var validarCampos =function () {
+        var condicionalCampos
+        condicionalCampos= parseInt(document.getElementById("txtK").value); 
+        if (condicionalCampos == 1)
+        {
+            document.getElementById("txtX2").disabled= true;
+            document.getElementById("txtX3").disabled= true;
+            document.getElementById("txtP2").disabled=true;
+            document.getElementById("txtP3").disabled= true;
+            alert('Se han ajustado los parametros');
+        }
+        else if (condicionalCampos == 2)
+        {
+            document.getElementById("txtX2").disabled= false;
+            document.getElementById("txtX3").disabled= true;
+            document.getElementById("txtP2").disabled=false;
+            document.getElementById("txtP3").disabled= true;
+            alert('Se han ajustado los parametros');
+        }
+        const form = document.querySelector('form')
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+            })
+    }
+        </script>
+        <!--Fin de validacion de campos-->
+    <!--Factorial de un numero-->
+    <script>
+        function Factorial(num) {
+       
+        var factorial=1;
+        for (i=1; i<=num; i++)
+        {
+            factorial=factorial*i;
+        }
+      return (factorial)
+
+            }
+        </script>
+    <!--Fin de factorial de un numero-->   
+
+    <!--Multiplicacion parte 1 Script-->
+    <script>
+        function combinacion1(n, x1, x2, x3) 
+        {
+          n = parseFloat(document.getElementById("txtN").value);
+          x1= parseFloat(document.getElementById("txtX1").value);
+          x2= parseFloat(document.getElementById("txtX2").value);
+          x3= parseFloat(document.getElementById("txtX3").value);
+          let operacion;
+          let operacionFactorial;
+          operacion= Factorial(x1) * Factorial(x2) * Factorial(x3);
+          operacionFactorial= (Factorial(n)/operacion);
+          return (operacionFactorial);
+
+        }
+    </script>
+    <!--Fin de multiplicacion parte 1-->
+
+    <!--Multiplicacion parte 2-->
+    <script>
+        function combinacion2(n, x1, x2, x3, p1, p2, p3)
+        {
+            n = parseFloat(document.getElementById("txtN").value);
+          x1= parseFloat(document.getElementById("txtX1").value);
+          x2= parseFloat(document.getElementById("txtX2").value);
+          x3= parseFloat(document.getElementById("txtX3").value);
+          let operacion;
+          let operacionFactorial;
+          operacion= Factorial(x1) * Factorial(x2) * Factorial(x3);
+          operacionFactorial= (Factorial(n)/operacion);
+            p1= parseFloat(document.getElementById("txtP1").value);
+            p2= parseFloat(document.getElementById("txtP2").value);
+            p3= parseFloat(document.getElementById("txtP3").value);
+            let operacion2;
+            operacion2= (p1**x1)*(p2**x2)*(p3**x3);
+            let resultado;
+            
+            resultado= (operacionFactorial)*(operacion2);
+            return (resultado.toFixed(4));
+        }
+    </script>
+    <!--Fin de Multiplicacion parte 2-->
+    <!--Si k=2-->
+    <script>
+        function combinacionK2(n, x1, x2, p1, p2) {
+          n = parseFloat(document.getElementById("txtN").value);
+          x1= parseFloat(document.getElementById("txtX1").value);
+          x2= parseFloat(document.getElementById("txtX2").value);
+          let operacion;
+          let operacionFactorial;
+          operacion= Factorial(x1) * Factorial(x2);
+          operacionFactorial= (Factorial(n)/operacion);
+          p1= parseFloat(document.getElementById("txtP1").value);
+          p2= parseFloat(document.getElementById("txtP2").value);
+          let operacion2;
+          operacion2= (p1**x1)*(p2**x2);
+          let resultado;
+            resultado= (operacionFactorial)*(operacion2);
+            return (resultado.toFixed(4));
+        }
+    </script>
+    <!--Fin de si k=2-->
+    <!--Si k=1-->
+    <script>
+    function combinacionK1(n, x1, p1) {
+        n = parseFloat(document.getElementById("txtN").value);
+        x1= parseFloat(document.getElementById("txtX1").value);
+          let operacion;
+          let operacionFactorial;
+          operacion= Factorial(x1)
+          operacionFactorial= (Factorial(n)/operacion);
+          p1= parseFloat(document.getElementById("txtP1").value);
+          let operacion2;
+          operacion2= (p1**x1)
+          let resultado;
+          resultado= (operacionFactorial)*(operacion2);
+          return (resultado.toFixed(4));
+    }
+    </script>
+    <!--Fin si k=1-->
+    <!--Hacer operaciones-->
+<script>
+    var getData = function() {
+        var condicionalCampos
+        condicionalCampos= parseInt(document.getElementById("txtK").value);
+        numeros= parseFloat(document.getElementById("txtN").value);
+        num1= parseFloat(document.getElementById("txtX1").value);
+        num2= parseFloat(document.getElementById("txtX2").value);
+        num3 = parseFloat(document.getElementById("txtX3").value);
+        probabilidad1= parseFloat(document.getElementById("txtP1").value);
+        probabilidad2 = parseFloat(document.getElementById("txtP2").value);
+        probabilidad3 = parseFloat(document.getElementById("txtP3").value);
+        if (condicionalCampos==3)
+        {
+            alert("El resultado de la operacion es: " + combinacion2(numeros, num1, num2, num3, probabilidad1, probabilidad2, probabilidad3))
+        }
+        else if (condicionalCampos==2)
+        {
+            alert("El resultado de la operacion es: " + combinacionK2(numeros, num1, num2, probabilidad1, probabilidad2))
+        }
+        else if (condicionalCampos==1)
+        {
+            alert("El resultado de la operacion es: " + combinacionK2(numeros, num1, probabilidad1))
+        }
+
+       
+
+        const form = document.querySelector('form')
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+            })
+    }
+
+</script>
+<!--Fin de hacer operaciones-->
+    
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probabilidad Binomial</title>
+   
+    <link rel="stylesheet"
+    href="https://bootswatch.com/4/lux/bootstrap.min.css">
+  
+</head>
+<body>
+    <form class="p-4">
+        <div class="form-group">
+            <img class="centered" src="https://i2.wp.com/www.profesor10demates.com/wp-content/uploads/2014/04/Distribuci%C3%B3n-binomial-formula.png?resize=1024%2C402&ssl=1" 
+            alt="Binomial Imagen"
+            width="336"
+            height="100"
+            >
+        </div>  
+        <div class="form-group">
+            <label for="txtN">Ingresa el valor de n:</label>
+            <input type="number" id="txtN" class="form-control" placeholder="Introduzca n" autofocus>
+        </div>
+        <div class="form-group">
+            <label for="txtP">Ingresa el valor de p:</label>
+            <input type="number" id="txtP" class="form-control" placeholder="Introduzca p">
+        </div>
+        <div class="form-group">
+            <label for="txtX">Ingresa el valor de X:</label>
+            <input type="number" id="txtX" class="form-control" placeholder="Introduzca X">
+        </div>
+        <button class="btn btn-primary btn-block " onclick="getData()">Hacer calculo</button>
+        </form>
+        <script>
+        function Factorial(num) {
+       
+        var factorial=1;
+        for (i=1; i<=num; i++)
+        {
+            factorial=factorial*i;
+        }
+      return factorial
+
+            }
+        </script>
+        <script>
+            function combinacionN(superior, inferior) {
+                let parte1= Factorial(superior);
+                let parte2= Factorial(inferior);
+                let parte3= Factorial(superior-inferior);
+                let operacion;
+                operacion= (parte1)/(parte2*parte3);
+                return operacion
+            }
+        </script>
+        <script>
+     function binomial(n, p, k) {
+
+    n= parseFloat(document.getElementById("txtN").value);
+    p= parseFloat(document.getElementById("txtP").value);
+    k= parseFloat(document.getElementById("txtX").value);
+    var resultado2;
+    var resultado;
+    var parte2;
+    var parte1;
+    var parte0;
+    var total;
+    resultado2= n-k
+    resultado= 1-p
+    parte2= resultado ** resultado2
+    parte1= p**k
+    parte0= combinacionN(n, k)
+    total= (parte0 * parte1* parte2).toFixed(2);
+
+   alert(total)
+    return total
+}
+        </script>
+        
+    <script>
+       var getData = function () {
+        let num1= parseFloat( document.getElementById("txtN").value);
+        let num2 = parseFloat(document.getElementById("txtP").value);
+        let num3= parseFloat(document.getElementById("txtX").value);
+            alert("El resultado es: " + binomial(num1, num2, num3));
+    const form = document.querySelector('form')
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+            })
+
+    }   
+    </script>
+    
+   
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribucion de Poisson</title>
+    <link rel="stylesheet"
+    href="https://bootswatch.com/4/lux/bootstrap.min.css">
+</head>
+<body>
+    <form class="p-4">
+        <div class="form-group">
+            <label for="txtN">Ingresa el valor de la probabilidad:</label>
+            <input type="number" id="txtP" class="form-control" placeholder="Introduzca la probabilidad" autofocus>
+        </div>
+        <div class="form-group">
+            <label for="txtT">Ingresa el valor del tiempo:</label>
+            <input type="number" id="txtT" class="form-control" placeholder="Introduzca el tiempo">
+        </div>
+        <div class="form-group">
+            <label for="txtT">El valor de λ es:</label>
+            <input type="number" id="txtL" class="form-control" readonly="true">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-danger btn-block" onclick="calcularLambda()">Calcular λ</button>
+        </div>
+        <div class="form-group">
+            <label for="txtX">Ingresa el valor de X:</label>
+            <input type="number" id="txtX" class="form-control" placeholder="Introduzca X">
+        </div>
+        <button class="btn btn-primary btn-block " onclick="getData()">Hacer calculo</button>
+    </form>
+    <!--Calcular λ-->
+    <script>
+        function calcularLambda(p, t) {
+            p = parseFloat(document.getElementById("txtP").value);
+            t = parseFloat(document.getElementById("txtT").value);
+            var resultado;
+            resultado = (p)*(t)
+            const form = document.querySelector('form')
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+            })
+            document.getElementById("txtL").value= resultado;
+            return(resultado);
+
+         
+
+        }
+    </script>
+    <!--Fin de calcular λ-->
+    <!--Script de Factorial-->
+    <script>
+          function Factorial(num) {
+       
+       var factorial=1;
+       for (i=1; i<=num; i++)
+       {
+           factorial=factorial*i;
+       }
+     return (factorial)
+    }
+    </script>
+    <!--Fin de script de factorial-->
+    <!--Combinaciones-->
+    <script>
+        function Operaciones(lambda, x, e)
+        {
+            lambda = parseFloat(document.getElementById("txtL").value);
+            e= (Math.E)
+            x= parseFloat(document.getElementById("txtX").value);
+            parte1 = (lambda**x);
+            parte2= (e**-lambda);
+            parte3= (Factorial(x));
+            union = (parte1*parte2)
+            resultado=(union/parte3).toFixed(4);
+            return resultado
+        }
+    </script>
+    <!--Fin de combinaciones-->
+    <!--Funcion getData()-->
+    <script>
+        var getData = function() {
+            lambda = parseFloat(document.getElementById("txtL").value);
+            e= (Math.E)
+            x= parseFloat(document.getElementById("txtX").value);
+            alert('El resultado de la operacion es: ' + Operaciones(lambda, e, x));
+            const form = document.querySelector('form')
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+            })
+        }
+    </script>
+    <!--Fin funciongetData()-->
+    
+</body>
+</html>

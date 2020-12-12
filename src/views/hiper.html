@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hipergeometrica</title>
+    <link rel="stylesheet"
+    href="https://bootswatch.com/4/lux/bootstrap.min.css">
+</head>
+<body>
+    <form class="p-4">
+        <div class="form-group">
+            <label for="txtX">Ingresa el valor de x:</label>
+            <input type="number" id="txtX" class="form-control" placeholder="Ingresa el valor de x" autofocus>
+        </div>
+        <form class="p-4">
+            <div class="form-group">
+                <label for="txtNmin">Ingresa el valor de n:</label>
+                <input type="number" id="txtNmin" class="form-control" placeholder="Ingresa el valor de n" autofocus>
+            </div>
+            <form class="p-4">
+                <div class="form-group">
+                    <label for="txtA">Ingresa el valor de a:</label>
+                    <input type="number" id="txtA" class="form-control" placeholder="Ingresa el valor de a" autofocus>
+                </div>
+                <form class="p-4">
+                    <div class="form-group">
+                        <label for="txtNmax">Ingresa el valor de N:</label>
+                        <input type="number" id="txtNmax" class="form-control" placeholder="Ingresa el valor de N" autofocus>
+                    </div>
+                    <button class="btn btn-primary btn-block" onclick="getData()" >Hacer calculo</button>
+    </form>
+    <!--Script de factorial-->
+    <script>
+        function Factorial(num) {
+       
+        var factorial=1;
+        for (i=1; i<=num; i++)
+        {
+            factorial=factorial*i;
+        }
+      return factorial
+
+            }
+        </script>
+    <!--Fin de Script de factorial-->
+    <!--Inicio de Script de combinaciones-->
+    <script>
+        function combinacionN(superior, inferior) {
+            let parte1= Factorial(superior);
+            let parte2= Factorial(inferior);
+            let parte3= Factorial(superior-inferior);
+            let operacion;
+            if (inferior > superior)
+            {
+                    alert('Error')
+                    operacion= "Math Error";
+            }
+            else
+            {
+            operacion= (parte1)/(parte2*parte3);
+            }
+            return operacion
+        }
+    </script>
+    <!--Fin de Scropt de combinaciones-->
+    <!--Inicio de la funcion de todas las operaciones-->
+    <script>
+        function operacionTotal(x, n, a, N) {
+            var parte1= combinacionN(a, x);
+            var parte2= combinacionN(N-a, n-x);
+            var parte3= combinacionN(N, n);
+            let operacion;
+            operacion= ((parte1 * parte2)/(parte3)).toFixed(3);
+            return operacion;
+        }
+    </script>
+    <!--Fin de la funcion de todas las operaciones-->
+    <!--Script de btn-->
+    <script>
+        var getData= function() {
+            let num1= parseFloat(document.getElementById("txtX").value);
+            let num2= parseFloat(document.getElementById("txtNmin").value);
+            let num3= parseFloat(document.getElementById("txtA").value);
+            let num4= parseFloat(document.getElementById("txtNmax").value);
+            alert("El resultado de la operacion es: " + operacionTotal(num1, num2, num3, num4));
+
+
+            const form = document.querySelector('form')
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+            })
+
+        }
+    </script>
+     <!--Fin de Script de btn-->
+</body>
+</html>

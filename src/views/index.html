@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Exo:700');
+      @import url('https://fonts.googleapis.com/css?family=Abel');
+body {
+  background-color: #dfe6e9;
+  transform: perspective(900px);
+  transform-style: preserve-3d;
+  text-decoration: none;
+}
+.title{
+  width: 100%;
+  text-align: center;
+}
+.title h1{
+  font-size:50px;
+  font-family: 'Exo', sans-serif;
+}
+.card1 {
+  text-align:center;
+  position: absolute;
+  left: 100px;
+  width: 250px;
+  height: 350px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(rgb(225,150,58),rgb(227,144,91));
+  transition:.6s;
+  
+  transform: rotatex(75deg) translatey(-200px) translatez(-100px);
+  box-shadow: 0px 20px 60px rgba(0,0,0, 0.5);
+}
+.card1:hover{
+  transform: rotatex(0deg);
+  transform: rotatez(0deg);
+  transition:.6s;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+.card1 img{
+  transform: translateY(15px);
+  width:200px;
+  height:120px;
+}
+h3{
+  font-size:25px;
+  font-family: 'Abel', sans-serif;
+  color:rgb(255,255,255);
+  text-shadow: 0 0 2px rgb(255,255,255);
+  transform: translatey(10px);
+}
+
+p{
+  
+  font-family: 'Abel', sans-serif;
+  color: white;
+  text-align:center;
+  width:220px;
+  transform: translatex(12px);
+}
+
+.card1.h3{
+  text-decoration: none;
+}
+.card2 {
+  text-align:center;
+  position: absolute;
+  left: 550px;
+  width: 250px;
+  height: 350px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(rgb(93,94,170),rgb(93,66,103));
+  animation: animate 1s linear infinite;
+  transition:.6s;
+  
+  transform: rotatex(75deg) translatey(-200px) translatez(-100px);
+  box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
+}
+.card2:hover{
+   transform: rotatex(0deg);
+  transition:.6s;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+.card2 img{
+  transform: translateY(15px);
+  width:180px;
+  height:150px;
+}
+.card3 {
+  text-align:center;
+  position: absolute;
+  left: 1000px;
+  width: 250px;
+  height: 350px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(#ff5252, #b33939);
+  transition:.6s;
+  
+  transform: rotatex(75deg) translatey(-200px) translatez(-100px);
+  box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
+}
+.card3:hover{
+   transform: rotatex(0deg);
+  transition:.6s;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+.card3 img{
+  transform: translateY(15px);
+  width:200px;
+  height:120px;
+}
+.footer{
+  position: absolute;
+  top: 500px;
+  margin: 10px;
+  width: 100%;
+   text-align: center;
+}
+.footer h2{
+  font-size:18px;
+  font-family: 'Exo', sans-serif;
+  
+}
+    </style>
+</head>
+<body>
+  <div class="title">
+    <h1>Calculadora de probabilidades</h1>
+  </div>
+  <div class="card1">
+    <img src="https://www.flaticon.es/svg/static/icons/svg/25/25231.svg" alt="">
+    <h3><a href="https://github.com/EWRC01">EWRC01</a></h3>
+    <p>Codigo Fuente de la app!</p>
+  </div>
+  
+  <div class="card2">
+    <img src="https://i.pinimg.com/originals/11/37/36/113736ffdb0da949e9443f7a4684d8f3.png" alt="">
+    <h3>Calculadora de probabilidades</h3>
+    <p>El funcionamiento de la app es calcular algunas probabilidaes como la clasica, la distribucion binomial y otras</p>
+  </div>
+  
+  <div class="card3">
+    <img src="https://cdn.icon-icons.com/icons2/1465/PNG/512/130manstudent2_100617.png" alt="">
+    <h3>Hecha por:</h3>
+    <p>Edwin Wilfredo Rodriguez Cabrera(SMIS043519)</p>
+  </div>
+  <div class="footer">
+  </div>
+    
+</body>
+</html>
