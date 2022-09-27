@@ -1,2 +1,2 @@
-# Calculadora-de-Probabilidades
-Calculadora de probabilidades, como la probabilidad clasica, la distribucion binomial, entre otras
+# Probability Calc
+A small app developed in electron, which offers us different types of probabilities that can be calculated within it, giving the parameters that are requested
